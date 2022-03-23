@@ -1,0 +1,11 @@
+\
+set term png;\
+set out "Fig.png";\
+set title "Linear interpolation";\
+set xlabel "x";\
+set ylabel "y";\
+set key out;\
+plot \
+ "data.txt" index 0 with points pointtype 1 pointsize 2 title "data"\
+,"data.txt" index 1 with points pointtype 1 pointsize 1 title "linterp"\
+

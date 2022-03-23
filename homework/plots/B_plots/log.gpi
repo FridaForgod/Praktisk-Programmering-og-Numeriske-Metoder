@@ -1,6 +1,8 @@
-set terminal png 
-set output 'gamma.gnuplot.png' 
-set xlabel 'x' 
-set ylabel 'y' 
-set title 'gamma function' 
-plot [0: 5] 'gamma.data.txt' index 0 using 1:2 with lines title 'gamma', 'gamma.tab.txt' with points pointtype 7 title 'tab'
+	set terminal png 
+	set output 'gamma.pyxplot.png' 
+	set xlabel 'x' 
+	set ylabel 'y' 
+	set title 'gamma function' 
+	plot [0:7] 'gamma.data.txt' index 0 using 1:2 with lines title 'gamma function',\ 
+	'gamma.tab.txt' with points pointtype 3 title 'tab' 
+	
