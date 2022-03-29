@@ -1,0 +1,17 @@
+Table 1
+Manually calculated cs: 0 0 0 0 
+Program cs: 0 0 0 0 
+Manually calculated bs: 0 0 0 0 
+Program bs: 0 0 0 0 
+
+Table 2
+Manually calculated cs: 0 0 0 0 
+Program cs: 0 0 0 0 
+Manually calculated bs: 1 1 1 1 
+Program bs: 1 1 1 1 
+
+Table 3
+Manually calculated cs: 1 1 1 1 
+Program cs: 1 1 1 1 
+Manually calculated bs: 2 4 6 8 
+Program bs: 2 4 6 8 

@@ -11,6 +11,7 @@ public static void Main(){
 	for(int i=0;i<n;i++){
 		x[i]=i;
 		y[i]=rnd.NextDouble()*5;
+		//y[i]=x[i];
 		WriteLine($"{x[i]} {y[i]}");
 		}
 	WriteLine();
@@ -18,6 +19,12 @@ public static void Main(){
 	for(int i=0;i<N;i++){
 		double z=x[0]+i*(x[n-1]-x[0])/(N-1);
 		WriteLine($"{z} {matlib.linterp(x,y,z)}");
+	}
+	WriteLine();
+	WriteLine();
+	for(int i=0;i<N;i++){
+		double z=x[0]+i*(x[n-1]-x[0])/(N-1);
+		WriteLine($"{z} {matlib.linterpInteg(x,y,z)}");
 	}
 }
 }

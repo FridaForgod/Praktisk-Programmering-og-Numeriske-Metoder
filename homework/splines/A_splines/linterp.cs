@@ -29,9 +29,11 @@ public static partial class matlib{
 		for(int i = 0; i < idx; i++){
 			double dy = y[i+1]-y[i], dx = x[i+1]-x[i];
 			double pi = dy/dx;
+Error.WriteLine($"i={i} pi={pi}");
 			sum += y[i]*(x[i+1]-x[i])+pi*Pow(x[i+1]-x[i],2)/2;
 		}
 		double p = (y[idx+1]-y[idx])/(x[idx+1]-x[idx]);
+Error.WriteLine($"idx={idx} p={p}");
 		sum += y[idx]*(z-x[idx])+p*Pow(z-x[idx],2)/2;	
 		return sum;
 	}

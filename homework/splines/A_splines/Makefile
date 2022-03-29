@@ -8,10 +8,11 @@ Fig.png: data.txt Makefile
 	set xlabel "x";\
 	set ylabel "y";\
 	set key out;\
+	set mtics 1;\
 	plot \
 	 "data.txt" index 0 with points pointtype 1 pointsize 1 title "data"\
 	,"data.txt" index 1 with points pointtype 2 pointsize 1 title "linterp"\
-	,"data.txt" index 1 with lines title "integrale";\
+	,"data.txt" index 2 with lines title "integrale";\
 	' | tee log | pyxplot
 
 data.txt:main.exe
