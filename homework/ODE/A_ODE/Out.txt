@@ -1,0 +1,5 @@
+ --- I am testing the Scipy ODE example --- 
+ --- The results will be plotted in the file called scipy.png --- 
+ --- This is a test on example --- 
+ --- The diferential equation u'' = -u is solved for initial conditions --- 
+ --- The results are plotted in the file called oscillator.png

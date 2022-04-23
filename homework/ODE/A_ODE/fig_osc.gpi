@@ -1,0 +1,9 @@
+set terminal png
+set output "osc.png"
+set grid
+set xlabel "t"
+set title "Solution to harminic oscillator"
+set key out
+plot\
+	"oscillator.txt" index 0 using 1:2 with lines title "$\sin(t)$",\
+	"oscillator.txt" index 0 using 1:3 with lines title "$\cos(t)$"

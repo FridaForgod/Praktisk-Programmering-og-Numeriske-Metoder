@@ -1,0 +1,11 @@
+set terminal png
+set output "leastsquare.png"
+set size 6
+set key out 
+set tics out
+set xlabel "$time [days]$"
+set ylabel "$activiy [arb. units]$" 
+set grid
+plot\
+	"Out.txt" index 0 using 1:2:3 with yerrorbars title "Data",\ 
+	"Out.txt" index 1 using 1:2 with lines pointtype 20 title "ls-fit"

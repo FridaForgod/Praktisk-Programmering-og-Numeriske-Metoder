@@ -1,5 +1,5 @@
 all: Out.txt
-	cat Out.txt
+	cat Out.txt | less
 
 Out.txt: main.exe
 	mono $< > $@

@@ -1,0 +1,14 @@
+set terminal png
+set output "plot_fit.png"
+set size 6
+set key out
+set tics out
+set title "Least Sqaure part C plot"
+set xlabel "Time [days]"
+set ylabel "Activity [arb. units]"
+set grid
+plot\
+	"Out.txt" index 0 using 1:2:3 with yerrorbars title "Data",\
+	"Out.txt" index 1 using 1:2 with lines title "Fit",\
+	"Out.txt" index 2 using 1:2 with lines title "Fit - $\Delta c$",\
+	"Out.txt" index 3 using 1:2 with lines title "Fit + $\Delta c$"
