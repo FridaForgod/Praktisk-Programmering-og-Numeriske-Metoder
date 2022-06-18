@@ -20,19 +20,19 @@ class main{
 		}//afslutter for		
 
 		//Printer matrix A
-		WriteLine("This is matrix A; it is a randomly generated symmetric matrix:");
+		WriteLine("___This is matrix A; it is a randomly generated symmetric matrix:___");
 		A.print();
 		WriteLine();
 
 		//Printer matrix D
-		WriteLine("This is matrix D; it is a randomly generated diagonalised matrix:");
+		WriteLine("___This is matrix D; it is a randomly generated diagonalised matrix:___");
 		matrix D;
 		matrix V;
 		(D,V) = JacobiDia.cyclic(A);
 		D.print();
 		WriteLine();
 		
-		WriteLine("This is a matrix consisting of eigenvectors:");
+		WriteLine("___This is a matrix consisting of eigenvectors:___");
 		V.print();
 		WriteLine();
 
@@ -42,7 +42,7 @@ class main{
 		matrix VVt = V*(V.transpose());
 
 		//Jeg printer beregningerne, og tjekker at jeg får de rigtige svar
-		WriteLine("I will check my answers, and see if they are correct");
+		WriteLine("__________I will check my answers, and see if they are correct__________");
 		
 
 		WriteLine("This is V^TAV:");		

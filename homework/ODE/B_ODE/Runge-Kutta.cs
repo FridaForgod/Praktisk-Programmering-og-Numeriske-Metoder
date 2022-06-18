@@ -84,6 +84,8 @@ public class rkstep{
 			double a, 
 			vector ya,
 			double b,
+			genlist<double> xlist = null,
+			genlist<vector> ylist = null,
 			double h=0.01,
 			double acc = 1e-3,
 			double eps = 1e-3
@@ -92,27 +94,45 @@ public class rkstep{
 		if(a>b) throw new Exception("The startpoint a must be lower than the endpoint b");
 		double x = a;
 		vector y = ya;
+		if(xlist != null && ylist != null){
+			xlist.push(x);
+			ylist.push(ya);
+		}
 
-		int i = 0; int maxIter = 50000;
-		while(i<=maxIter){
-			if(x>=b){return y;}
-			if(x+h>b){h = b-x;}
+		do{
+			if (x>=b) return y;
+			if (x+h>b) h=b-x;
 			var (yh, erv) = step(f,x,y,h);
-			double tol = Max(acc, yh.norm()*eps)*Sqrt(h/(b-a));
-			double err = erv.norm();
-			if(err <= tol){
-				x+=h;
-				y=yh;
+			vector tol = new vector(erv.size);
+			bool ok = true;
 
-			} //afslutter if
+			for(int i=0; i<tol.size; i++){
+				tol[i] = Max(acc, Abs(yh[i])*eps)*Sqrt(h/(b-a));
+				ok = ok && erv[i]<tol[i];
+
+			}
 			
-			double power = 0.25;
-			double safety = 0.95;
-			h *= Min(Pow(tol/err, power)*safety,2);
+			if(ok){
+				x +=h;
+				y = yh;
+				if(xlist != null && ylist != null){
+					xlist.push(x);
+					ylist.push(y);
+				}
+			}
 
-		} // afslutter while
+			double factor = tol[0]/Abs(erv[0]);
+			for(int i=1; i<tol.size; i++){
+				factor = Min(factor, tol[i]/Abs(erv[i]));
+				h *= Min(Pow(factor, 0.25)*0.95, 2);
+
+
+			}
+
+
+		} while(true); // afslutter do
+
 		
-		throw new Exception("You have exceeded the maximum number of steps. Time to stop!");
 
 	} //afslutter driver
 

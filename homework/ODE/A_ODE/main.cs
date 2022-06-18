@@ -5,8 +5,8 @@ using System;
 public class main{
 	public static void Main(){
 
-		WriteLine(" --- I am testing the Scipy ODE example --- ");
-		WriteLine(" --- The results will be plotted in the file called scipy.png --- ");
+		WriteLine(" _______________ A test of the Scipy ODE example_____________ ");
+		WriteLine(" _______________ The results will be plotted in the file called ode.png _______________ ");
 
 		Func<double, vector, vector> pend = delegate(double t, vector y){
 			double b = 0.25;
@@ -37,13 +37,13 @@ public class main{
 			} // afslutter for
 		} // afslutter StreamWriter
 
-		WriteLine(" --- This is a test on example --- ");
-		WriteLine(" --- The diferential equation u'' = -u is solved for initial conditions --- ");
-		WriteLine(" --- The results are plotted in the file called oscillator.png");
+		WriteLine(" _______________ This is a test on example ___________________ ");
+		WriteLine(" ______________ The diferential equation u'' = -u is solved for initial conditions _________________ ");
+		WriteLine(" --- The results are plotted in the file called osc.png");
 		
 		double[] initcos = new double[] {0.0, 1.0};
 		vector yacos = new vector(initcos);
-		using(var outfile = new System.IO.StreamWriter("oscillator.txt")){
+		using(var outfile = new System.IO.StreamWriter("osc.txt")){
 			for(double ti = step; ti <= 10.0; ti += step){
 				vector solution = rkstep.driver(OSC, ti - step, yacos, ti);
 				outfile.WriteLine($" {ti} {solution[0]} {solution[1]} ");
